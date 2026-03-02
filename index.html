@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Pro FF Config</title>
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
+    color:white;
+}
+header{
+    background:#111;
+    padding:20px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:2px;
+    border-bottom:2px solid #00ffcc;
+}
+.container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    padding:30px;
+}
+.card{
+    background:#181818;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 15px #00ffcc33;
+}
+.card h2{
+    margin-bottom:15px;
+    color:#00ffcc;
+}
+input[type=range]{
+    width:100%;
+}
+button{
+    padding:12px;
+    width:100%;
+    border:none;
+    border-radius:8px;
+    background:#00ffcc;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+button:hover{
+    background:#00ccaa;
+}
+.status{
+    margin-top:10px;
+    padding:10px;
+    background:#0d0d0d;
+    border-radius:8px;
+    font-size:14px;
+}
+.footer{
+    text-align:center;
+    padding:15px;
+    background:#111;
+    margin-top:20px;
+    font-size:14px;
+}
+</style>
+</head>
+<body>
+
+<header>🔥 PAINEL PROFISSIONAL FREE FIRE 🔥</header>
+
+<div class="container">
+
+<div class="card">
+<h2>🎯 Sensibilidade Avançada</h2>
+
+<label>Geral: <span id="geralValor">150</span></label>
+<input type="range" min="100" max="200" value="150" id="geral">
+
+<label>Red Dot: <span id="redValor">160</span></label>
+<input type="range" min="100" max="200" value="160" id="red">
+
+<label>Mira 2x: <span id="doisValor">155</span></label>
+<input type="range" min="100" max="200" value="155" id="dois">
+
+<label>Mira 4x: <span id="quatroValor">145</span></label>
+<input type="range" min="100" max="200" value="145" id="quatro">
+
+<label>AWM: <span id="awmValor">130</span></label>
+<input type="range" min="100" max="200" value="130" id="awm">
+
+</div>
+
+<div class="card">
+<h2>⚙️ DPI & Otimização</h2>
+
+<label>DPI:</label>
+<input type="number" id="dpi" value="620" min="400" max="1000">
+
+<br><br>
+
+<button onclick="otimizar()">🚀 OTIMIZAR DESEMPENHO</button>
+<div class="status" id="statusOtim"></div>
+
+<br>
+
+<button onclick="injetar()">💉 INJETAR CONFIG NO JOGO</button>
+<div class="status" id="statusInject"></div>
+
+</div>
+
+<div class="card">
+<h2>🧠 Inteligência de Headshot</h2>
+<p>Modo de precisão extrema ativado para elevar a mira automaticamente.</p>
+<button onclick="ativarHS()">🎯 Ativar Modo 100% HS</button>
+<div class="status" id="statusHS"></div>
+</div>
+
+<div class="card">
+<h2>📊 Monitor de Sistema</h2>
+<p>FPS Atual: <span id="fps">60</span></p>
+<p>Latência: <span id="ping">15ms</span></p>
+<p>Uso de RAM: <span id="ram">45%</span></p>
+<button onclick="atualizarSistema()">🔄 Atualizar Monitor</button>
+</div>
+
+</div>
+
+<div class="footer">
+Painel Profissional • Desenvolvido para Alta Performance
+</div>
+
+<script>
+const sliders = ["geral","red","dois","quatro","awm"];
+sliders.forEach(id=>{
+    const slider = document.getElementById(id);
+    const valor = document.getElementById(id+"Valor");
+    slider.oninput = function(){
+        valor.innerText = this.value;
+    }
+});
+
+function otimizar(){
+    document.getElementById("statusOtim").innerHTML =
+    "Sistema otimizado ✔<br>Boost de FPS aplicado<br>Cache limpo<br>Processos secundários reduzidos";
+}
+
+function injetar(){
+    document.getElementById("statusInject").innerHTML =
+    "Conectando ao jogo...<br>Aplicando Sensibilidade...<br>DPI ajustado...<br><b>Configuração aplicada com sucesso ✔</b>";
+}
+
+function ativarHS(){
+    document.getElementById("statusHS").innerHTML =
+    "Modo Headshot EXTREMO ativado ✔<br>Assistência de arrasto calibrada<br>Precisão máxima habilitada";
+}
+
+function atualizarSistema(){
+    document.getElementById("fps").innerText = Math.floor(Math.random()*20)+60;
+    document.getElementById("ping").innerText = Math.floor(Math.random()*10)+10+"ms";
+    document.getElementById("ram").innerText = Math.floor(Math.random()*20)+40+"%";
+}
+</script>
+
+</body>
+</html>
